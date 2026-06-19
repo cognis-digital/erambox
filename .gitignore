@@ -1,0 +1,24 @@
+# Generated artifacts
+/out/
+/out-*/
+out/
+*.generated
+
+# Local config copies that may hold secrets (keep the examples/ ones)
+*.local.env
+secrets.env
+
+# TLS material
+*.pem
+*.key
+*.crt
+
+# Editor / OS noise
+*.swp
+*~
+.DS_Store
+Thumbs.db
+
+# Test scratch
+.tmp/
+tmp/

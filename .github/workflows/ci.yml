@@ -1,0 +1,41 @@
+name: ci
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Show bash version
+        run: bash --version
+
+      - name: Shellcheck (if available)
+        run: |
+          if command -v shellcheck >/dev/null 2>&1; then
+            echo "Running shellcheck..."
+            shellcheck erambox.sh lib/*.sh tests/run.sh
+          else
+            echo "shellcheck not found; attempting apt install"
+            sudo apt-get update -qq && sudo apt-get install -y shellcheck || true
+            if command -v shellcheck >/dev/null 2>&1; then
+              shellcheck erambox.sh lib/*.sh tests/run.sh
+            else
+              echo "shellcheck unavailable; skipping lint"
+            fi
+          fi
+
+      - name: Run test suite
+        run: bash tests/run.sh
+
+      - name: Smoke (generate + validate + healthcheck dry-run)
+        run: |
+          bash erambox.sh validate --config examples/grc.env
+          bash erambox.sh validate --config examples/grc-prod.env
+          bash erambox.sh generate --config examples/grc.env --profile dev --out ./ci-out
+          bash erambox.sh generate --config examples/grc-prod.env --profile prod --out ./ci-out-prod
+          bash erambox.sh healthcheck --config examples/grc.env --dry-run
