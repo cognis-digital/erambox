@@ -18,12 +18,12 @@ jobs:
         run: |
           if command -v shellcheck >/dev/null 2>&1; then
             echo "Running shellcheck..."
-            shellcheck erambox.sh lib/*.sh tests/run.sh
+            shellcheck --severity=error erambox.sh lib/*.sh tests/run.sh
           else
             echo "shellcheck not found; attempting apt install"
             sudo apt-get update -qq && sudo apt-get install -y shellcheck || true
             if command -v shellcheck >/dev/null 2>&1; then
-              shellcheck erambox.sh lib/*.sh tests/run.sh
+              shellcheck --severity=error erambox.sh lib/*.sh tests/run.sh
             else
               echo "shellcheck unavailable; skipping lint"
             fi

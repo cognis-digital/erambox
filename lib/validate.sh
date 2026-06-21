@@ -1,3 +1,4 @@
+# shellcheck shell=bash
 # lib/validate.sh - config validation for erambox
 #
 # Maintainer: Cognis Digital

@@ -1,3 +1,4 @@
+# shellcheck shell=bash
 # lib/generate.sh - artifact generation for erambox
 #
 # Maintainer: Cognis Digital

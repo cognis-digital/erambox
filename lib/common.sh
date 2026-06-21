@@ -1,3 +1,4 @@
+# shellcheck shell=bash
 # lib/common.sh - shared helpers for erambox
 #
 # Maintainer: Cognis Digital

@@ -1,3 +1,4 @@
+# shellcheck shell=bash
 # lib/config.sh - config loading for erambox
 #
 # Maintainer: Cognis Digital

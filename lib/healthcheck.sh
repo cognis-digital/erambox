@@ -1,3 +1,4 @@
+# shellcheck shell=bash
 # lib/healthcheck.sh - health probing for erambox
 #
 # Maintainer: Cognis Digital

@@ -1,3 +1,4 @@
+# shellcheck shell=bash
 # lib/template.sh - pure-bash templating for erambox
 #
 # Maintainer: Cognis Digital
