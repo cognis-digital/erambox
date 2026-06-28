@@ -26,6 +26,25 @@ License: **COCL 1.0**
 
 ---
 
+
+<!-- cognis:example:start -->
+## 🔎 Example output
+
+**Sample result format** _(illustrative values — run on your own data for real findings):_
+
+```
+{
+  "id": "1234567890",
+  "name": "John Doe",
+  "created_at": "2022-07-25T14:30:00Z",
+  "updated_at": "2022-08-01T10:15:00Z",
+  "tags": ["tag1", "tag2", "tag3"],
+  "status": "active"
+}
+```
+
+<!-- cognis:example:end -->
+
 ## Requirements
 
 - Bash 4.3+ (associative arrays + namerefs).
